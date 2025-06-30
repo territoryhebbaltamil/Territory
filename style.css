@@ -1,0 +1,313 @@
+/* Color Palette */
+:root {
+    --primary-blue: #3f51b5; /* Deeper blue for primary elements */
+    --accent-orange: #ff9800; /* Accent color for highlights/hover */
+    --text-dark: #333333;
+    --text-light: #f8f8f8;
+    --background-light: #e8eaf6; /* Lighter background */
+    --background-card: #ffffff;
+    --border-light: #dcdcdc;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 8px var(--shadow-medium);
+    margin-bottom: 20px;
+}
+
+/* Main Navigation */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: var(--background-card);
+    padding: 20px;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.nav-button {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.nav-button:hover {
+    background-color: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+.nav-button[aria-current="page"] {
+    background-color: var(--accent-orange);
+    box-shadow: 0 3px 6px var(--shadow-medium);
+    transform: translateY(-1px);
+}
+
+/* Submenu Containers (Details/Summary) */
+.submenu-container {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    padding: 0 15px;
+}
+
+.submenu-details {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Ensures content respects border-radius */
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.submenu-summary {
+    display: block; /* Important for custom styling */
+    padding: 15px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    user-select: none; /* Prevent text selection */
+    transition: background-color 0.3s ease;
+}
+
+.submenu-summary:hover {
+    background-color: var(--accent-orange);
+}
+
+/* Custom caret for summary */
+.submenu-summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.submenu-details[open] .submenu-summary::after {
+    content: '-';
+    transform: translateY(-50%) rotate(0deg); /* No rotation needed for minus */
+}
+
+/* Nested submenu styling */
+.nested-submenu {
+    margin-left: 20px;
+    border-left: 5px solid var(--accent-orange);
+}
+
+/* Submenu Buttons */
+.submenu-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 20px;
+    background-color: #f0f4f7; /* Lighter background for buttons inside */
+    border-top: 1px solid var(--border-light);
+}
+
+.submenu-buttons button {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.submenu-buttons button:hover {
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.submenu-buttons button.active {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    font-weight: bold;
+    box-shadow: 0 2px 5px var(--shadow-medium);
+}
+
+
+/* Map Containers */
+.map-display-area {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.map-container {
+    background-color: var(--background-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    margin-bottom: 25px;
+    overflow: hidden; /* Ensures iframe respects border-radius */
+    display: none; /* Hidden by default */
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.map-container.visible {
+    display: block;
+    opacity: 1;
+}
+
+iframe {
+    width: 100%;
+    height: 600px; /* Increased height for better view */
+    border: none;
+    display: block; /* Removes extra space below iframe */
+}
+
+.map-label {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-blue);
+    background-color: #e3f2fd; /* Light blue background for label */
+    border-top: 1px solid var(--border-light);
+}
+
+.placeholder {
+    text-align: center;
+    font-style: italic;
+    padding: 40px 20px;
+    color: #777;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Image Carousel */
+.carousel-wrapper {
+    overflow: hidden;
+    margin: 20px auto 40px;
+    max-width: 95%; /* Wider carousel */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px var(--shadow-medium);
+    position: relative;
+    height: 220px; /* Fixed height for consistency */
+}
+
+.carousel {
+    display: flex;
+    gap: 15px; /* More space between images */
+    animation: scroll-left 40s linear infinite; /* Slower animation */
+    height: 100%; /* Fill wrapper height */
+    padding: 10px; /* Padding inside for images */
+}
+
+.carousel img {
+    width: 320px; /* Slightly larger images */
+    height: 100%; /* Maintain aspect ratio within height */
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Only scroll half the carousel to avoid abrupt jumps */
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .nav-button {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .submenu-buttons button {
+        width: calc(50% - 5px); /* Two buttons per row */
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    iframe {
+        height: 400px; /* Shorter on mobile */
+    }
+
+    .carousel-wrapper {
+        height: 180px;
+    }
+
+    .carousel img {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .submenu-buttons button {
+        width: 100%; /* Full width buttons on small screens */
+    }
+
+    .carousel-wrapper {
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .carousel img {
+        width: 200px;
+    }
+}
