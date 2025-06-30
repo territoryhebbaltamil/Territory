@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bangalore Hebbal Tamil Congregation Territory</title>
+  <style>
+
+.carousel-wrapper {
+  overflow: hidden;
+  margin: 10px auto 40px;
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.carousel {
+  display: flex;
+  gap: 10px;
+  animation: scroll-left 30s linear infinite;
+}
+
+.carousel img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+    :root {
+      --primary: #3367d6;
+      --secondary: #f1f3f4;
+      --hover: #234b99;
+      --light: #ffffff;
+      --dark: #202124;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary);
+      color: var(--dark);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background-color: var(--light);
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .nav-button:hover,
+    .nav-button.active {
+      background-color: var(--hover);
+    }
+
+    .submenu {
+      display: none;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 0;
+      background-color: #e8edf9;
+      transition: all 0.3s ease;
+    }
+
+    .submenu button {
+      background-color: #d2e3fc;
+      color: #202124;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .map-container {
+      display: none;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .placeholder {
+      text-align: center;
+      font-style: italic;
+      padding: 20px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <header>Bangalore Hebbal Tamil Congregation Territory</header>
+
+
+
+<!-- Image Carousel -->
+<div class="carousel-wrapper">
+  <div class="carousel">
+    <!-- Placeholder images -->
+    <img src="placeholder1.jpg" alt="Gallery Image 1" />
+    <img src="placeholder2.jpg" alt="Gallery Image 2" />
+    <img src="placeholder3.jpg" alt="Gallery Image 3" />
+    <img src="placeholder4.jpg" alt="Gallery Image 4" />
+    <img src="placeholder5.jpg" alt="Gallery Image 5" />
+    <img src="placeholder6.jpg" alt="Gallery Image 6" />
+    <img src="placeholder7.jpg" alt="Gallery Image 7" />
+    <img src="placeholder8.jpg" alt="Gallery Image 8" />
+    <img src="placeholder9.jpg" alt="Gallery Image 9" />
+    <img src="placeholder10.jpg" alt="Gallery Image 10" />
+  </div>
+</div>
+
+
+  <nav>
+    <button class="nav-button" onclick="toggleSection('weekdays')">Weekdays</button>
+    <button class="nav-button" onclick="toggleSection('weekends')">Weekends</button>
+  </nav>
+
+  <div class="submenu" id="weekdays">
+    <button onclick="showMap('monday')">Monday</button>
+    <button onclick="showMap('tuesday')">Tuesday</button>
+    <button onclick="showMap('wednesday')">Wednesday</button>
+    <button onclick="showMap('friday')">Friday</button>
+  </div>
+
+  <div class="submenu" id="weekends">
+    <button onclick="showMap('saturday')">Saturday</button>
+    <button onclick="toggleSection('sunday')">Sunday</button>
+  </div>
+
+  <div class="submenu" id="sunday">
+    <button onclick="showMap('kanaka')">Kanaka Nagar</button>
+    <button onclick="showMap('manorayanapalya')">Manorayanapalya</button>
+    <button onclick="showMap('nagawara')">Nagawara</button>
+    <button onclick="showMap('sulthanpalya')">Sulthanpalya</button>
+    <button onclick="showMap('kingdomhall')">Kingdom Hall</button>
+    <button onclick="showMap('bhuvaneshwari')">Bhuvaneshwari Nagar</button>
+  </div>
+
+  <!-- Map Panels -->
+  <div id="monday" class="map-container">
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=19XJQn3ln6Tn5xS3Dga58fn-EdhIBKSg&ehbc=2E312F"></iframe>
+  </div>
+  <div id="tuesday" class="map-container">
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1Y_4z4_zgnz6N7R4RNGbV5qyWrZ6p8uc&ehbc=2E312F"></iframe>
+  </div>
+  <div id="wednesday" class="map-container">
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1E3W6HEoFcBeXaOgLo78ahEMdUjj0PxU&ehbc=2E312F"></iframe>
+  </div>
+  <div id="friday" class="map-container">
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1cAx8se_5MVCLEh3v-oHDF7fTHysW00s&ehbc=2E312F"></iframe>
+  </div>
+  <div id="saturday" class="map-container">
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1iAGBDfvsK779q_H13hL25MF_U6yCOAU&ehbc=2E312F"></iframe>
+  </div>
+
+  <!-- Sunday placeholders -->
+  <div id="kanaka" class="map-container"><div class="placeholder">Kanaka Nagar group map embed code not yet provided.</div></div>
+  <div id="manorayanapalya" class="map-container"><div class="placeholder">Manorayanapalya group map embed code not yet provided.</div></div>
+  <div id="nagawara" class="map-container"><div class="placeholder">Nagawara group map embed code not yet provided.</div></div>
+ <div id="sulthanpalya" class="map-container">
+  <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1LdUMvz58ZAnpguCBl_wGxh3a0kQcOTI&ehbc=2E312F"></iframe>
+</div>
+  <div id="kingdomhall" class="map-container"><div class="placeholder">Kingdom Hall group map embed code not yet provided.</div></div>
+  <div id="bhuvaneshwari" class="map-container"><div class="placeholder">Bhuvaneshwari Nagar group map embed code not yet provided.</div></div>
+
+  <script>
+    function toggleSection(sectionId) {
+      const submenus = ['weekdays', 'weekends', 'sunday'];
+      submenus.forEach(id => {
+        const element = document.getElementById(id);
+        if (id === sectionId) {
+          element.style.display = element.style.display === 'flex' ? 'none' : 'flex';
+        } else {
+          element.style.display = 'none';
+        }
+      });
+
+      // update nav button highlight
+      document.querySelectorAll('.nav-button').forEach(button => {
+        button.classList.remove('active');
+        if (button.getAttribute('onclick').includes(sectionId)) {
+          button.classList.add('active');
+        }
+      });
+    }
+
+    function showMap(mapId) {
+      document.querySelectorAll('.map-container').forEach(map => map.style.display = 'none');
+      const mapElement = document.getElementById(mapId);
+      if (mapElement) mapElement.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
